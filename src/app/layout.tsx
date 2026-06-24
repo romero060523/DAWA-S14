@@ -49,7 +49,6 @@ export const metadata: Metadata = {
     title: `${personalInfo.name} - ${personalInfo.title}`,
     description: personalInfo.description,
     images: ['/og-image.jpg'],
-    creator: '@tuusuario',
   },
   robots: {
     index: true,
@@ -59,11 +58,8 @@ export const metadata: Metadata = {
       follow: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
-      'max-sidebar-preview': -1,
+      'max-snippet': -1,
     },
-  },
-  verification: {
-    google: 'tu-codigo-de-verificacion',
   },
 };
 
@@ -74,9 +70,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={inter.variable}>
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen antialiased">
         <Header />
-        <main className="grow bg-gray-50">{children}</main>
+        <main className="grow">{children}</main>
         <Footer />
       </body>
     </html>

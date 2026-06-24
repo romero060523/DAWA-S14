@@ -4,7 +4,6 @@ import { projects, personalInfo } from '@/lib/data';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = personalInfo.siteUrl;
 
-  // Páginas estáticas
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -24,14 +23,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
   ];
 
-  // Páginas dinámicas de proyectos
   const projectPages: MetadataRoute.Sitemap = projects.map((project) => ({
     url: `${baseUrl}/projects/${project.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
-    priority: 0.7,
+    priority: 0.6,
   }));
 
   return [...staticPages, ...projectPages];
